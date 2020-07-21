@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xlo/common/custom_drawer/custom_drawer.dart';
+import 'package:xlo/screens/home/widgets/search_dialog.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,8 +13,21 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("OLX"),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () => _openSearch(""))
+        ],
       ),
       drawer: CustomDrawer(),
     );
   }
+
+  _openSearch(String currentSearch) async {
+    final String search = await showDialog(
+      context: context,
+      builder: (context) => SearchDialog(currentSearch: currentSearch),
+    );
+  }
+  
 }
