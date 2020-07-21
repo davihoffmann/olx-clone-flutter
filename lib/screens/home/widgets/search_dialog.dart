@@ -42,7 +42,7 @@ class _SearchDialogState extends State<SearchDialog> {
                   onPressed: () => _textEditingController.clear(),
                 ),
               ),
-              onSubmitted: (text) => Navigator.of(context).pop(context),
+              onSubmitted: (text) => Navigator.of(context).pop(text),
             ),
           ),
         )
